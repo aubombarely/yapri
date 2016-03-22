@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use autodie;
 
-use Carp qw( croak cluck );
+use Carp qw( croak cluck carp );
 use Math::BigFloat;
 use File::Temp qw( tempfile tempdir );
 use File::Path qw( make_path remove_tree);
