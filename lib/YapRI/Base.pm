@@ -28,7 +28,7 @@ A wrapper to interact with R/
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 =head1 SYNOPSIS
@@ -92,7 +92,7 @@ $VERSION = eval $VERSION;
 
 =head1 AUTHOR
 
-Aureliano Bombarely <ab782@cornell.edu>
+Aureliano Bombarely <aurebg@vt.edu>
 
 
 =head1 CLASS METHODS

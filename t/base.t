@@ -21,8 +21,8 @@
 
 =head1 AUTHORS
 
- Aureliano Bombarely Gomez
- (ab782@cornell.edu)
+ Aureliano Bombarely
+ (aurebg@vt.edu)
 
 =cut
 
