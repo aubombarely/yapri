@@ -20,8 +20,8 @@
 
 =head1 AUTHORS
 
- Aureliano Bombarely Gomez
- (ab782@cornell.edu)
+ Aureliano Bombarely
+ (aurebg@vt.edu)
 
 =cut
 
@@ -348,11 +348,18 @@ throws_ok { $matrix0->delete_row('fake') } qr/ERROR: fake used for/,
 
 
 ## Change_columns, TEST 69 to 73
+## The expected matrix should be
+##
+##   1  2  4
+##  -------- 
+##   1  8 12 
+##  15 98  1 
 
 $matrix0->change_columns(1, 4);
 is(join(',', @{$matrix0->get_data()}), '12,8,1,1,98,15',
     "testing change_columns, checking data")
     or diag("Looks like this has failed");
+
 
 is(join(',', @{$matrix0->get_colnames()}), '4,2,1',
     "testing change_columns, checking column names order")

@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use autodie;
 
-use Carp qw(croak cluck);
+use Carp qw(croak cluck carp);
 use YapRI::Base qw(r_var);
 
 
@@ -20,7 +20,7 @@ A module to build and pass a Matrix to a YapRI command file
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 =head1 SYNOPSIS
@@ -1340,9 +1340,10 @@ sub change_columns {
     ## Get the index for this two colnames
 
     my @colnames = @{$self->get_colnames()};
+
     my ($n, $match) = (0, 0);
     foreach my $col (@colnames) {
-	foreach my $selcol (keys %col_index) {
+	foreach my $selcol (sort keys %col_index) {
 	    if ($col eq $selcol) {
 		$col_index{$selcol} = $n;
 		$match++;
@@ -1366,7 +1367,7 @@ sub change_columns {
     my $a = 0;
     foreach my $data (@data) {
 	my ($r, $c) = @{$revindex{$a}};
-	foreach my $colnm (keys %col_index) {
+	foreach my $colnm (sort keys %col_index) {
 	    if ($col_index{$colnm} == $c) {
 		push @{$col_data{$colnm}}, $data;
 	    }
@@ -1383,7 +1384,7 @@ sub change_columns {
 	$colname1 => $colname2,
 	);
 
-    foreach my $chname (keys %changed) {	
+    foreach my $chname (sort keys %changed) {	
 	$self->set_coldata($chname, $col_data{$changed{$chname}});
 	
 	my $old_idx = $col_index{$chname};
@@ -1450,7 +1451,7 @@ sub change_rows {
     my $a = 0;
     foreach my $data (@data) {
 	my ($r, $c) = @{$revindex{$a}};
-	foreach my $rownm (keys %row_index) {
+	foreach my $rownm (sort keys %row_index) {
 	    if ($row_index{$rownm} == $r) {
 		push @{$row_data{$rownm}}, $data;
 	    }
@@ -1467,7 +1468,7 @@ sub change_rows {
 	$rowname1 => $rowname2,
 	);
 
-    foreach my $chname (keys %changed) {	
+    foreach my $chname (sort keys %changed) {	
 	$self->set_rowdata($chname, $row_data{$changed{$chname}});
 	
 	my $old_idx = $row_index{$chname};
