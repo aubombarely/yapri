@@ -20,8 +20,8 @@
 
 =head1 AUTHORS
 
- Aureliano Bombarely Gomez
- (ab782@cornell.edu)
+ Aureliano Bombarely
+ (aurebg@vt.edu)
 
 =cut
 
@@ -30,7 +30,7 @@ use warnings;
 use autodie;
 
 use Data::Dumper;
-use Test::More tests => 64;
+use Test::More tests => 45;
 use Test::Exception;
 use Test::Warn;
 
@@ -241,7 +241,7 @@ throws_ok { $rgraph0->_sgraph_check() } qr/ERROR: Sgraph doesnt/,
 $rgraph0->set_sgraph({ plot => {}, barplot => {} });
 
 is($rgraph0->_sgraph_check, 'barplot', 
-    "testing _sgraph_check with more than onwe funtion, checking return")
+    "testing _sgraph_check with more than one function, checking return")
     or diag("Looks like this has failed");
 
 
@@ -251,12 +251,14 @@ my %blocks2 = %{$rbase0->get_cmdfiles()};
 
 
 
-print STDERR "\n\n\n\n";
+## Lines to print the commands
 
-open my $tfh, '<', $blocks2{$block0};
-while(<$tfh>) {
-    print STDERR "$_";
-} 
+#print STDERR "\n\n\n\n";
+
+#open my $tfh, '<', $blocks2{$block0};
+#while(<$tfh>) {
+#    print STDERR "$_";
+#} 
 
 
 ############################

@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use autodie;
 
-use Carp qw( croak cluck );
+use Carp qw( croak cluck carp );
 use String::Random qw( random_regex random_string);
 
 use YapRI::Base qw( r_var );
@@ -23,7 +23,7 @@ A module to create simple graphs using R through YapRI::Base
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 =head1 SYNOPSIS
@@ -40,7 +40,7 @@ $VERSION = eval $VERSION;
 
 =head1 AUTHOR
 
-Aureliano Bombarely <ab782@cornell.edu>
+Aureliano Bombarely <aurebg@vt.edu>
 
 
 =head1 CLASS METHODS
